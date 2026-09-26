@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: c2-cluster-create
+  namespace: argocd
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: cluster-api
+    repoURL: 'https://github.com/adel-hmr/cluster-api-gitops.git'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values-c2.yaml
+  project: default
