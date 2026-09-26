@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: clusterclass-install
+  namespace: argocd
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/adel-hmr/cluster-api-gitops.git'
+    targetRevision: HEAD
+    path: cluster-class
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
