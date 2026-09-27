@@ -1,5 +1,5 @@
 cluster:
   name: c2
   masterNodes: 1
-  workerNodes: 1
+  workerNodes: 2
   version: v1.21.1
