@@ -135,17 +135,17 @@ metadata:
 spec:
   clusterName: {{ .Values.cluster.name }}
   maxUnhealthy: 100%
-  nodeStartupTimeout: 10m
+  nodeStartupTimeout: 10m0s
   selector:
     matchLabels:
       cluster.x-k8s.io/deployment-name: {{ .Values.cluster.name }}-md-0
   unhealthyConditions:
     - type: Ready
       status: Unknown
-      timeout: 180s
+      timeout: 3m0s
     - type: Ready
       status: "False"
-      timeout: 180s
+      timeout: 3m0s
 ---
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineHealthCheck
@@ -155,14 +155,14 @@ metadata:
 spec:
   clusterName: {{ .Values.cluster.name }}
   maxUnhealthy: 100%
-  nodeStartupTimeout: 10m
+  nodeStartupTimeout: 10m0s
   selector:
     matchLabels:
       cluster.x-k8s.io/control-plane: ""
   unhealthyConditions:
     - type: Ready
       status: Unknown
-      timeout: 180s
+      timeout: 3m0s
     - type: Ready
       status: "False"
-      timeout: 180s
+      timeout: 3m0s
