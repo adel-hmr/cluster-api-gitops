@@ -141,10 +141,10 @@ spec:
   unhealthyConditions:
     - type: Ready
       status: Unknown
-      timeout: 1m0s
+      timeout: 3m0s
     - type: Ready
       status: "False"
-      timeout: 1m0s
+      timeout: 3m0s
 ---
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineHealthCheck
