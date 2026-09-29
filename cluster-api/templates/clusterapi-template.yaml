@@ -153,7 +153,7 @@ metadata:
   namespace: default
 spec:
   clusterName: {{ .Values.cluster.name }}
-  maxUnhealthy: 100%
+  maxUnhealthy: 70%
   nodeStartupTimeout: 10m0s
   selector:
     matchLabels:
@@ -161,7 +161,7 @@ spec:
   unhealthyConditions:
     - type: Ready
       status: Unknown
-      timeout: 3m0s
+      timeout: 5m0s
     - type: Ready
       status: "False"
-      timeout: 3m0s
+      timeout: 5m0s
